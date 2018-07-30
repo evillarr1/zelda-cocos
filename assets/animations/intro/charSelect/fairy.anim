@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "fairy",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.18333333333333332,
+  "sample": 60,
+  "speed": 0.7,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "2120c6f6-cc4b-483d-ba22-6c82ef60b0ff"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "8e955c1f-0bb1-4853-875d-0c1c07888341"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "2120c6f6-cc4b-483d-ba22-6c82ef60b0ff"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

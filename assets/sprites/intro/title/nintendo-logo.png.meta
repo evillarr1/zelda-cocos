@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "6ff63082-6126-44a6-9b64-9f60855da288",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "nintendo-logo": {
+      "ver": "1.0.3",
+      "uuid": "e905c023-6c64-47b6-a1b6-537e17af2c9b",
+      "rawTextureUuid": "6ff63082-6126-44a6-9b64-9f60855da288",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 103,
+      "height": 8,
+      "rawWidth": 103,
+      "rawHeight": 8,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
