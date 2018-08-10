@@ -7,8 +7,17 @@ export default class Controls extends cc.Component {
     }
 
     onKeyDown(e: cc.Event.EventCustom) {
+        let image = this.node.getChildByName("alphabet");
+        let sprite = image.getComponent("cc.Sprite");
+
         switch (e.keyCode) {
-            case cc.KEY.enter:
+            case cc.KEY.left:
+                image.setPositionX(image.getPositionX() + 55);
+                sprite.fillStart -= 0.035
+                break;
+            case cc.KEY.right:
+                image.setPositionX(image.getPositionX() - 55);
+                sprite.fillStart += 0.035
                 break;
         }
     }
