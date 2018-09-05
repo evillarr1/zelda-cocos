@@ -49,6 +49,6 @@ export default class ControlsFairy extends cc.Component {
     }
 
     update() {
-        this.node.getChildByName("fairy").setPositionY((this.node.width / 3) - this.moveMap[this.currentIndex]);
+        this.node.getChildByName("fairy").y = (this.node.width / 3) - this.moveMap[this.currentIndex];
     }
 }  
