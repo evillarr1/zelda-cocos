@@ -7508,7 +7508,8 @@ declare module cc {
 		``` 
 		*/
 		on(type: string, callback: (event: Event.EventCustom) => void, target?: any): (event: Event.EventCustom) => void;
-		on<T>(type: string, callback: (event: T) => void, target?: any): (event: T) => void;		
+		on<T>(type: string, callback: (event: T) => void, target?: any): (event: T) => void;	
+	
 		/**
 		!#en
 		Removes the listeners previously registered with the same type, callback, target and or useCapture,
@@ -7531,6 +7532,7 @@ declare module cc {
 		eventTarget.off('fire');
 		``` 
 		*/
+		
 		off(type: string, callback?: Function, target?: any): void;		
 		/**
 		!#en Removes all callbacks previously registered with the same target (passed as parameter).
@@ -7588,7 +7590,15 @@ declare module cc {
 		通过事件对象派发事件
 		@param event event 
 		*/
-		dispatchEvent(event: Event): void;	
+		dispatchEvent(event: Event): void;
+
+		/**
+		!#en
+		Send an event with the event object.
+		!#zh
+		通过事件对象派发事件
+		*/
+		removeAll(): void;
 	}	
 	/** !#en Base class of all kinds of events.
 	!#zh 包含事件相关信息的对象。 */
