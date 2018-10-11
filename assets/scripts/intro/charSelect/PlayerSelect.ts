@@ -1,4 +1,5 @@
 const { ccclass } = cc._decorator;
+import user from './Storage';
 
 @ccclass
 export default class ControlsFairy extends cc.Component {
@@ -14,12 +15,31 @@ export default class ControlsFairy extends cc.Component {
     onEnable() {
         this.currentIndex = 0;
 
-        let profile = cc.sys.localStorage.getItem('PROFILE_1');
-        if (profile) {
-            let json = JSON.parse(profile);
+        for (let i = 1; i <= 3; i++) {
+            let profile = cc.sys.localStorage.getItem(`PROFILE_${i}`);
+            if (profile) {
+                let json = JSON.parse(profile);
 
-            let text = this.node.getChildByName("profile1").getComponent(cc.Label);
-            text.string = json.name;
+                let childElement = this.node.getChildByName(`profile${i}`);
+                let childComponent = childElement.getComponent(cc.Label);
+                childComponent.string = json.name;
+
+                cc.loader.loadRes("sprites/intro/charSelect/charSelect", cc.SpriteAtlas, (err, atlas) => {
+                    let frame = atlas.getSpriteFrame('emptyHeart');
+
+                    for (let j = 0; j < json.maxHearts; j++) {
+                        let newHeart = new cc.Node("heart");
+                        newHeart.scale = 2.4;
+                        newHeart.x += (this.node.width / 6) + (25 * (j % 8));
+                        newHeart.y =  (this.node.width / 3) - this.moveMap[i - 1] - (j > 7 ? 27 : 0);
+                        let sprite = newHeart.addComponent(cc.Sprite);
+                        newHeart.parent = this.node;
+        
+                        let spriteFrame = new cc.SpriteAtlas();
+                        sprite.spriteFrame = frame;
+                    }
+                });
+            }
         }
     }
 
@@ -54,12 +74,19 @@ export default class ControlsFairy extends cc.Component {
             return;
         }
 
+        let profile = cc.sys.localStorage.getItem(`PROFILE_${this.currentIndex + 1}`);
+        if (profile) {
+            cc.director.loadScene("introDemo");
+            return;
+        }
+
         let audio = this.node.getComponent(cc.AudioSource);
 
         this.node.active = false;
 
         setTimeout(() => {
             this.node.parent.getChildByName("registerPlayerName").active = true;
+            user.currentUser = this.currentIndex + 1;
         });
 
         audio.play();

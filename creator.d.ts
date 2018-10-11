@@ -10351,7 +10351,7 @@ declare module cc {
 		
 		``` 
 		*/
-		static raw(url: string): string;	
+		static 5raw(url: string): string;	
 	}	
 	/** !#en The module provides utilities for working with file and directory paths
 	!#zh 用于处理文件与目录的路径的模块 */

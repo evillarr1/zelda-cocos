@@ -1,4 +1,5 @@
-const { ccclass, property } = cc._decorator;
+const { ccclass } = cc._decorator;
+import user from './Storage';
 
 const LEFT_LIMIT = 0;
 const RIGHT_LIMIT = 28;
@@ -116,10 +117,11 @@ export default class Controls extends cc.Component {
 
         let userProfile = {
             name: this.getName().join(""),
+            maxHearts: 3,
             hearts: 3
         };
 
-        cc.sys.localStorage.setItem('PROFILE_1', JSON.stringify(userProfile));
+        cc.sys.localStorage.setItem(`PROFILE_${user.currentUser}`, JSON.stringify(userProfile));
 
         return;
     }
